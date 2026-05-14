@@ -1,100 +1,244 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-QFE5NBGFQ1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QFE5NBGFQ1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-QFE5NBGFQ1');
+    </script>
 
-  gtag('config', 'G-QFE5NBGFQ1');
-</script>
-
-   <meta charset="UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Premium Tech Store</title>
+    
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --accent: #3498db;
+            --light-bg: #f8f9fa;
+            --text: #333;
+            --shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            color: var(--text);
+            background-color: #fff;
+        }
+
+        /* --- Header & Nav --- */
+        header {
+            background: var(--primary);
+            color: white;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow);
+        }
+
+        header h1 { margin: 0; font-size: 1.5rem; }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover { color: var(--accent); }
+
+        /* --- Hero Section --- */
+        .hero {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+
+        .hero h2 { font-size: 2.5rem; color: var(--primary); margin-bottom: 10px; }
+
+        /* --- Product Grid --- */
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid #eee;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow);
+        }
+
+        .product-card img {
+            max-width: 100%;
+            height: 200px;
+            object-fit: contain;
+            margin-bottom: 15px;
+        }
+
+        .product-card h3 { font-size: 1.2rem; margin: 10px 0; }
+
+        .product-card p { color: #666; font-size: 0.9rem; }
+
+        .price {
+            display: block;
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: var(--primary);
+            margin: 15px 0;
+        }
+
+        .buy-btn {
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .buy-btn:hover { background: #2980b9; }
+
+        /* --- Footer --- */
+        footer {
+            background: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 30px;
+            margin-top: 50px;
+        }
+
+        @media (max-width: 600px) {
+            header { flex-direction: column; text-align: center; }
+            nav { margin-top: 15px; }
+            nav a { margin: 0 10px; }
+        }
+    </style>
 </head>
-<body style="font-family: sans-serif; line-height: 1.6; padding: 20px;">
+<body>
 
     <header>
-        <h1 style="color: #2c3e50;">Premium Tech Hub</h1>
+        <h1>Premium Tech Hub</h1>
         <nav>
-            <a href="#home">Home</a> | 
-            <a href="#products">Shop Products</a> | 
+            <a href="#home">Home</a>
+            <a href="#products">Shop</a>
             <a href="#contact">Support</a>
         </nav>
     </header>
 
-    <hr>
-
-    <section id="home">
+    <section id="home" class="hero">
         <h2>Exclusive Tech Deals</h2>
-        <p>Get the latest smartphones, watches, and audio gear at the best prices in India.</p>
+        <p>Premium smartphones, watches, and audio gear delivered to your door.</p>
     </section>
 
-    <hr>
-
-    <section id="products">
-        <h2>Featured Gadgets</h2>
-        
-        <table border="0" cellpadding="20" cellspacing="0">
-            <tr>
-                <td align="center" width="250">
-                    <img src="shopping12.webp" alt="JBL Headphones" width="200">
+    <div class="container" id="products">
+        <div class="product-grid">
+            
+            <div class="product-card">
+                <img src="shopping12.webp" alt="JBL Headphones">
+                <div>
                     <h3>JBL Wireless Headphones</h3>
                     <p>Deep bass and long battery life.</p>
-                    <p><b style="font-size: 1.2em;">₹3,499</b></p>
-                    <button type="button">Buy Now</button>
-                </td>
+                </div>
+                <div>
+                    <span class="price">₹3,499</span>
+                    <button class="buy-btn">Buy Now</button>
+                </div>
+            </div>
 
-                <td align="center" width="250">
-                    <img src="Untitled.jpeg" alt="Titan Smart Watch" width="200">
+            <div class="product-card">
+                <img src="Untitled.jpeg" alt="Titan Smart Watch">
+                <div>
                     <h3>Titan Smart Watch</h3>
                     <p>Fitness tracking & AMOLED display.</p>
-                    <p><b style="font-size: 1.2em;">₹7,995</b></p>
-                    <button type="button">Buy Now</button>
-                </td>
-            
-                <td align="center" width="250">
-                    <img src="shopping1.webp" alt="Galaxy S25" width="200">
+                </div>
+                <div>
+                    <span class="price">₹7,995</span>
+                    <button class="buy-btn">Buy Now</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="shopping1.webp" alt="Galaxy S25">
+                <div>
                     <h3>Galaxy S25</h3>
                     <p>The ultimate compact flagship.</p>
-                    <p><b style="font-size: 1.2em;">₹79,999</b></p>
-                    <button type="button">Buy Now</button>
-                </td>
+                </div>
+                <div>
+                    <span class="price">₹79,999</span>
+                    <button class="buy-btn">Buy Now</button>
+                </div>
+            </div>
 
-                <td align="center" width="250">
-                    <img src="shopping.webp" alt="Galaxy S24 Ultra" width="200">
+            <div class="product-card">
+                <img src="shopping.webp" alt="Galaxy S24 Ultra">
+                <div>
                     <h3>Galaxy S24 Ultra</h3>
                     <p>AI-powered with built-in S-Pen.</p>
-                    <p><b style="font-size: 1.2em;">₹1,24,999</b></p>
-                    <button type="button">Buy Now</button>
-                </td>
-            </tr>
-            <tr>
-                <td align="center" width="250">
-                    <img src="Untitled2121.jpeg" alt="OnePlus 10 Pro" width="200">
+                </div>
+                <div>
+                    <span class="price">₹1,24,999</span>
+                    <button class="buy-btn">Buy Now</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="Untitled2121.jpeg" alt="OnePlus 10 Pro">
+                <div>
                     <h3>OnePlus 10 Pro</h3>
                     <p>Hasselblad Camera for Mobile.</p>
-                    <p><b style="font-size: 1.2em;">₹54,999</b></p>
-                    <button type="button">Buy Now</button>
-                </td>
+                </div>
+                <div>
+                    <span class="price">₹54,999</span>
+                    <button class="buy-btn">Buy Now</button>
+                </div>
+            </div>
 
-                <td align="center" width="250">
-                    <img src="789879.jpeg" alt="iPhone 16 Pro" width="200">
+            <div class="product-card">
+                <img src="789879.jpeg" alt="iPhone 16 Pro">
+                <div>
                     <h3>iPhone 16 Pro</h3>
                     <p>Pro camera system & A18 Pro chip.</p>
-                    <p><b style="font-size: 1.2em;">₹1,19,900</b></p>
-                    <button type="button">Buy Now</button>
-                </td>
-            </tr>
-        </table>
-    </section>
+                </div>
+                <div>
+                    <span class="price">₹1,19,900</span>
+                    <button class="buy-btn">Buy Now</button>
+                </div>
+            </div>
 
-    <hr>
+        </div>
+    </div>
 
     <footer>
-        <p>&copy; 2026 Premium Tech Hub India. All prices inclusive of GST.</p>
+        <p>&copy; 2026 Premium Tech Hub India. <br> <small>All prices inclusive of GST.</small></p>
     </footer>
 
 </body>
